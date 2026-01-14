@@ -19,9 +19,9 @@
       let surveyBase = "";
 
       if (version === "A") {
-        surveyBase = "https://www.surveycake.com/s/zp7YY?version=A)"; // A 問卷
+        surveyBase = "https://www.surveycake.com/s/zp7YY"; // A 問卷
       } else if (version === "B") {
-        surveyBase = "https://www.surveycake.com/s/wpWdM?version=B"; // B 問卷
+        surveyBase = "https://www.surveycake.com/s/wpWdM"; // B 問卷
       } 
 
       // 4. 組合最終網址（所有參數原封不動帶過去）
