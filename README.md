@@ -10,10 +10,8 @@ Simple scripts for random survey assignment and experiment flow control.
 
       // 👉 在這裡放你的問卷連結
       const surveys = [
-        "https://www.surveycake.com/s/XYZ12?version=A", // 情境 A
-        "https://www.surveycake.com/s/XYZ12?version=B", // 情境 B
-        "https://www.surveycake.com/s/XYZ12?version=C", // 情境 C
-        "https://www.surveycake.com/s/XYZ12?version=D"  // 情境 D
+        "https://www.surveycake.com/s/zp7YY?version=A", // 情境 A
+        "https://www.surveycake.com/s/wpWdM?version=B", // 情境 B
       ];
 
       // 隨機抽一個
