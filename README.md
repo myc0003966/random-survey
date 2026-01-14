@@ -16,7 +16,9 @@
         surveyBase = "https://www.surveycake.com/s/zp7YY";
       } else if (version === "B") {
         surveyBase = "https://www.surveycake.com/s/wpWdM";
-      } 
+      } else {
+        surveyBase = "https://www.surveycake.com/s/zp7YY";
+      }
 
       const finalUrl = surveyBase + "?" + params.toString();
       window.location.replace(finalUrl);
