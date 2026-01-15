@@ -8,21 +8,23 @@
     <p>Redirecting to survey…</p>
 
     <script>
-     const queryString = window.location.search;
-  const params = new URLSearchParams(queryString);
-  const version = params.get("version");
+      // 1. 保留所有 Connect 參數（participantId 等）
+      const queryString = window.location.search;
 
-  let surveyBase = "";
-  if (version === "A") {
-    surveyBase = "https://www.surveycake.com/s/zp7YY";
-  } else if (version === "B") {
-    surveyBase = "https://www.surveycake.com/s/wpWdM";
-  } else {
-    surveyBase = "https://www.surveycake.com/s/zp7YY"; // fallback
-  }
+      // 2. 隨機分派 A / B（50/50）
+      const randomVersion = Math.random() < 0.5 ? "A" : "B";
 
-  const finalUrl = surveyBase + queryString;
-  window.location.replace(finalUrl);
+      // 3. 對應 SurveyCake 問卷
+      let surveyBase = "";
+      if (randomVersion === "A") {
+        surveyBase = "https://www.surveycake.com/s/zp7YY";
+      } else {
+        surveyBase = "https://www.surveycake.com/s/wpWdM";
+      }
+
+      // 4. 導向（保留原參數）
+      const finalUrl = surveyBase + queryString;
+      window.location.replace(finalUrl);
     </script>
   </body>
 </html>
