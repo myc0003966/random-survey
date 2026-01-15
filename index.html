@@ -8,20 +8,21 @@
     <p>Redirecting to survey…</p>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      const version = params.get("version");
+      const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  const version = params.get("version");
 
-      let surveyBase = "";
-      if (version === "A") {
-        surveyBase = "https://www.surveycake.com/s/zp7YY";
-      } else if (version === "B") {
-        surveyBase = "https://www.surveycake.com/s/wpWdM";
-      } else {
-        surveyBase = "https://www.surveycake.com/s/zp7YY";
-      }
+  let surveyBase = "";
+  if (version === "A") {
+    surveyBase = "https://www.surveycake.com/s/zp7YY";
+  } else if (version === "B") {
+    surveyBase = "https://www.surveycake.com/s/wpWdM";
+  } else {
+    surveyBase = "https://www.surveycake.com/s/zp7YY"; // fallback
+  }
 
-      const finalUrl = surveyBase + queryString;
-      window.location.replace(finalUrl);
+  const finalUrl = surveyBase + queryString;
+  window.location.replace(finalUrl);
     </script>
   </body>
 </html>
