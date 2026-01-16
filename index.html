@@ -8,16 +8,20 @@
     <p>Redirecting to survey…</p>
 
     <script>
-      const queryString = window.location.search;
+ const queryString = window.location.search;
   const params = new URLSearchParams(queryString);
   const version = params.get("version");
+
+  console.log("VERSION =", version);
 
   let surveyBase = "";
   if (version === "C") {
     surveyBase = "https://www.surveycake.com/s/rpvVa";
   } else if (version === "D") {
     surveyBase = "https://www.surveycake.com/s/KWO2N";
-  } 
+  } else {
+    alert("version not matched: " + version);
+  }
 
   const finalUrl = surveyBase + queryString;
   window.location.replace(finalUrl);
