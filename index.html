@@ -13,13 +13,11 @@
   const version = params.get("version");
 
   let surveyBase = "";
-  if (version === "A") {
-    surveyBase = "https://www.surveycake.com/s/zp7YY";
-  } else if (version === "B") {
-    surveyBase = "https://www.surveycake.com/s/wpWdM";
-  } else {
-    surveyBase = "https://www.surveycake.com/s/zp7YY"; // fallback
-  }
+  if (version === "C") {
+    surveyBase = "https://www.surveycake.com/s/rpvVa";
+  } else if (version === "D") {
+    surveyBase = "https://www.surveycake.com/s/KWO2N";
+  } 
 
   const finalUrl = surveyBase + queryString;
   window.location.replace(finalUrl);
