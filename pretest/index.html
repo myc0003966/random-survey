@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Redirect</title>
+  </head>
+  <body>
+    <p>Redirecting to survey…</p>
+
+    <script>
+      // 1. 保留所有 Connect 參數（participantId 等）
+      const queryString = window.location.search;
+
+      // 2. 隨機分派 C / D（50/50）
+      const randomVersion = Math.random() < 0.5 ? "C" : "D";
+
+      // 3. 對應 SurveyCake 問卷
+      let surveyBase = "";
+      if (randomVersion === "C") {
+        surveyBase = "https://www.surveycake.com/s/rpvVa";
+      } else {
+        surveyBase = "https://www.surveycake.com/s/KWO2N";
+      }
+
+      // 4. 導向（保留原參數）
+      const finalUrl = surveyBase + queryString;
+      window.location.replace(finalUrl);
+    </script>
+  </body>
+</html>
