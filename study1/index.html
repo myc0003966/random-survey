@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Redirect</title>
+  </head>
+  <body>
+    <p>Redirecting to survey…</p>
 
+    <script>
+      // 1. 保留所有 Connect 參數（participantId 等）
+      const queryString = window.location.search;
+
+      // 2. 八個版本與對應問卷網址
+      const surveys = {
+        A: "https://www.surveycake.com/s/GxBPQ",
+        B: "https://www.surveycake.com/s/3XrVM",
+        C: "https://www.surveycake.com/s/yXd4w",
+        D: "https://www.surveycake.com/s/AvpZP",
+        E: "https://www.surveycake.com/s/q46WN",
+        F: "https://www.surveycake.com/s/k8MN3",
+        G: "https://www.surveycake.com/s/XmQ88",
+        H: "https://www.surveycake.com/s/2k0mV"
+      };
+
+      // 3. 隨機分派 A-H（等機率）
+      const versions = Object.keys(surveys);
+      const randomVersion = versions[Math.floor(Math.random() * versions.length)];
+
+      // 4. 產生導向網址
+      let finalUrl = surveys[randomVersion];
+
+      // 5. 若原本已有參數，保留並附加 version
+      if (queryString) {
+        finalUrl += queryString + "&version=" + encodeURIComponent(randomVersion);
+      } else {
+        finalUrl += "?version=" + encodeURIComponent(randomVersion);
+      }
+
+      // 6. 導向
+      window.location.replace(finalUrl);
+    </script>
+  </body>
+</html>
