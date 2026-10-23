@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Redirect</title>
+  </head>
+  <body>
+    <p>Redirecting to survey…</p>
 
+    <script>
+      const surveys = {
+        A: "https://www.surveycake.com/s/GxBPQ",
+        B: "https://www.surveycake.com/s/3XrVM",
+        C: "https://www.surveycake.com/s/yXd4w",
+        D: "https://www.surveycake.com/s/AvpZP",
+        E: "https://www.surveycake.com/s/q46WN",
+        F: "https://www.surveycake.com/s/k8MN3",
+        G: "https://www.surveycake.com/s/XmQ88",
+        H: "https://www.surveycake.com/s/2k0mV"
+      };
+
+      // 讀取網址參數
+      const params = new URLSearchParams(window.location.search);
+      let version = params.get("version");
+
+      // 如果沒有指定版本，才隨機
+      if (!version || !surveys[version]) {
+        const versions = Object.keys(surveys);
+        version = versions[Math.floor(Math.random() * versions.length)];
+      }
+
+      // 把 version 設成唯一值
+      params.set("version", version);
+
+      // 組合最終網址
+      const finalUrl = surveys[version] + "?" + params.toString();
+
+      // 跳轉
+      window.location.replace(finalUrl);
+    </script>
+  </body>
+</html>
