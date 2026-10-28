@@ -1,51 +1,15 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Survey Redirect</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 40px;
-        color: #333;
-      }
-    </style>
-  </head>
-  <body>
-    <p id="status">Redirecting to survey…</p>
-
-    <script>
-      // 1️⃣ 讀取 URL 參數
-      const queryString = window.location.search;
-      const params = new URLSearchParams(queryString);
-      const version = params.get("version");
-
-      // 2️⃣ 定義 C / D 對應的 SurveyCake 問卷
-      const SURVEY_MAP = {
-        C: "https://www.surveycake.com/s/rpvVa",
-        D: "https://www.surveycake.com/s/KWO2N"
-      };
-
-      // 3️⃣ 安全檢查：只允許 C 或 D
-      if (!version || !SURVEY_MAP[version]) {
-        document.getElementById("status").innerText =
-          "Error: Invalid or missing version parameter.";
-
-        console.error("❌ Invalid version:", version);
-        console.error("👉 Expected ?version=C or ?version=D");
-
-        // ⚠️ 不導向，直接停止
-        throw new Error("Invalid version parameter");
-      }
-
-      // 4️⃣ 組合最終網址（保留所有參數）
-      const finalUrl = SURVEY_MAP[version] + queryString;
-
-      console.log("✅ Version:", version);
-      console.log("➡ Redirecting to:", finalUrl);
-
-      // 5️⃣ 導向（replace 不留歷史紀錄）
-      window.location.replace(finalUrl);
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Redirect</title>
+  <script>
+    window.location.replace(
+      "/random-survey/study2/" + window.location.search
+    );
+  </script>
+</head>
+<body>
+</body>
 </html>
